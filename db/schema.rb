@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120513110341) do
+ActiveRecord::Schema.define(:version => 20120513155101) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20120513110341) do
     t.string   "url"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "video_id"
   end
 
   add_index "youtube_links", ["user_id"], :name => "index_youtube_links_on_user_id"

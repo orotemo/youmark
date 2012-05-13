@@ -58,4 +58,13 @@ describe "Links" do
     visit user_path(user)
     user.youtube_links.count.should eq(5)
   end
+
+  # When a user enters a link to be saved from YouTube, she should see the video name and thumbnail automatically as they appear in youtube
+  it 'can identify youtube links as special, and attach extra info to them' do
+    user.youtube_links.create(url: youtube_link.url)
+
+    visit user_path(user)
+    page.should have_selector('img', href: "http://www.youtube.com/watch?v=RvE9Lmzq5aM&feature=g-vrec")
+  end
+
 end

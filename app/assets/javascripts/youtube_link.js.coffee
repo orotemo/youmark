@@ -22,6 +22,23 @@ deleteLinks = (e)->
 
     }) if ids.length > 0
 
+nameForLink = (link_id, link_element)->
+  url = "http://gdata.youtube.com/feeds/api/videos/#{link_id}?v=2&alt=json"
+  $.ajax({
+    dataType: 'json'
+    url: url
+    success: (result)-> 
+      title = result.entry.title.$t
+      $('a',link_element).html(title)
+  })
+
+fetchVideoNames = ()->
+  link_elements = $('#bookmarks td:nth-child(2)' )
+  names = []
+  for link_elem in link_elements
+    link_id = $(link_elem).data('id')
+    nameForLink(link_id, link_elem)
 
 $ ->
   $('#delete_checked_links').click deleteLinks
+  fetchVideoNames()

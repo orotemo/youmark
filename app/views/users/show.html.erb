@@ -14,10 +14,13 @@
   <thead>
     <tr>
       <th>
+        Image
+      </th>
+      <th>
         URL
       </th>
       <th>
-        X 
+        Delete 
       </th>
     </tr>
   </thead>
@@ -25,7 +28,8 @@
     <% for link in current_user.youtube_links %>
       <% unless link.new_record? %>
         <%= content_tag :tr, id: "youtube_link_#{link.id}" do %>
-          <td><%= link_to link.url,link.url %></td>
+          <td> <%= raw thumbnail_url(link) %> </td>
+          <td <%= "data-id='#{link.video_id}'" if link.video_id %>><%= link_to link.url,link.url %></td>
           <td><%= check_box_tag 'delete_youtube_link' %>  <%= link_to 'remove', link, method: :delete %></td>
         <% end -%>
       <% end -%>
