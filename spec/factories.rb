@@ -10,4 +10,9 @@ FactoryGirl.define do
     user
     url "http://www.youtube.com/watch?v=RvE9Lmzq5aM&feature=g-vrec"  
   end
+
+  factory :a_link, class: YoutubeLink do
+    user
+    sequence(:url ) { |n| "http://link_to_#{n}" }
+  end
 end

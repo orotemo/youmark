@@ -39,4 +39,23 @@ describe "Links" do
       page.should_not have_content youtube_link.url
     end
   end
+  # User should be able to remove a large number of bookmarks easily
+  it 'can pick and mass-remove links', js: true do
+    i = 0
+    user.youtube_links.create(url: FactoryGirl.build(:a_link).url) && i+=1 while i<10
+
+    visit user_path(user)
+
+    user.youtube_links.count.should eq(10)
+    i=1
+    while i < 6
+      within "#youtube_link_#{i}" do
+        check('delete_youtube_link')
+        i+=1
+      end
+    end
+    click_link 'remove marked'
+    visit user_path(user)
+    user.youtube_links.count.should eq(5)
+  end
 end
