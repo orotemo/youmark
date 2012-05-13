@@ -9,17 +9,25 @@
 <% end -%>
 </aside>
 
-<table>
+<table id="bookmarks">
   <thead>
     <tr>
       <th>
         URL
       </th>
+      <th>
+        X 
+      </th>
     </tr>
   </thead>
   <tbody>
     <% for link in current_user.youtube_links %>
-      <tr><td><%= link.url %></td></tr>
+      <tr>
+        <% unless link.new_record? %>
+          <td><%= link_to link.url,link.url %></td>
+          <td><%= link_to 'remove', link, method: :delete %></td>
+        <% end -%>
+      </tr>
     <% end -%>
   </tbody>
 </table>

@@ -29,5 +29,14 @@ describe "Links" do
 
     page.should have_content youtube_link.url
   end
+  # User should be able to remove bookmarks by clicking a remove link in the bookmark list page
+  it 'can delete existing bookmarks' do
+    user.youtube_links.create(url: youtube_link.url)
 
+    visit user_path(user)
+    click_link 'remove'
+    within '#bookmarks' do
+      page.should_not have_content youtube_link.url
+    end
+  end
 end

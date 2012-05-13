@@ -1,6 +1,7 @@
 class YoutubeLinksController < ApplicationController
   include UsersHelper
   before_filter :log_in_user
+
   def create
     @youtube_link = current_user.youtube_links.build(params[:youtube_link])
     if @youtube_link.save
@@ -8,5 +9,11 @@ class YoutubeLinksController < ApplicationController
     else
       render 'users/show', error: 'failed adding link'
     end
+  end
+
+  def destroy
+    @youtube_link = current_user.youtube_links.find(params[:id])
+    @youtube_link.destroy
+    redirect_to current_user
   end
 end
