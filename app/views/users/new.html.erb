@@ -1,0 +1,27 @@
+<div id='registration' class='centered'>
+  <h3>Registration</h3>
+  <%= form_for(@user) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <fieldset>
+      <%= f.label :name %>
+      <%= f.text_field :name, placeholder: 'name' %>
+    </fieldset>
+    <fieldset>
+    <%= f.label :email %>
+    <%= f.text_field :email, placeholder: 'email' %>
+    </fieldset>
+
+    <fieldset>
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: 'password' %>
+    </fieldset>
+
+    <fieldset>
+    <%= f.label :password_confirmation, "Confirmation" %>
+    <%= f.password_field :password_confirmation, placeholder: 'confirmation' %>
+    </fieldset>
+
+    <%= f.submit "Register" %>
+  <% end %>
+
+</div>

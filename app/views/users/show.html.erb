@@ -1,0 +1,25 @@
+<h3><%= "You Mark :: we remember, so you don't have to" if current_user.youtube_links.count == 0 %></h3>
+<aside>
+<%= form_for(@youtube_link) do |form| %>
+  <fieldset>
+    <%= form.label :url %>
+    <%= form.text_field :url, placeholder: 'YouTube URL' %>
+  </fieldset>
+  <%= form.submit "Add" %>
+<% end -%>
+</aside>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        URL
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for link in current_user.youtube_links %>
+      <tr><td><%= link.url %></td></tr>
+    <% end -%>
+  </tbody>
+</table>

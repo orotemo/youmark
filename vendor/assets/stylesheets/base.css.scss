@@ -199,7 +199,10 @@ nav ul li{
   margin:0 0.7%;		
 }
 
-input[type='text'],input[type='password']{width:40%}
+#login,#registration { 
+  input[type='text'],input[type='password']{width:44440%}
+}
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -242,9 +245,10 @@ WIDE: Main
   width:28%;
 }
 
-input[type='text'],input[type='password']{width:20%}
+#login,#registration { 
+  input[type='text'],input[type='password']{width:20%}
 }
-
+}
 @media only screen and (min-width: 1140px) {
   
   /* ===============

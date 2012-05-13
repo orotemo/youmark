@@ -4,6 +4,7 @@ Youmark::Application.routes.draw do
   match '/login', to: 'sessions#new'
   match '/logout', to: 'sessions#destroy', via: :delete
   resources :sessions, only: [:create]
+  resources :youtube_links, only: [:create]
   resources :users
  
   # The priority is based upon order of creation:

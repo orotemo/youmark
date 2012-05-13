@@ -1,0 +1,17 @@
+<div id='login' class='centered'>
+  <h3>Login</h3>
+  <%= form_for(:session, url: sessions_path) do |f| %>
+   <fieldset>
+    <%= f.label :email %>
+    <%= f.text_field :email, placeholder: 'email' %>
+    </fieldset>
+
+    <fieldset>
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: 'password' %>
+    </fieldset>
+
+    <%= f.submit "Login" %>
+  <% end %>
+
+</div>
