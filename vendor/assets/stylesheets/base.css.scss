@@ -14,9 +14,9 @@ body { margin: 0; font-size: 1em; line-height: 1.4; }
 ::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
 ::selection { background: #fe57a1; color: #fff; text-shadow: none; }
 
-a { color: #00e; }
-a:visited { color: #551a8b; }
-a:hover { color: #06e; }
+a{color:#BF0; }
+a:visited{color:#BBFF05; }
+a:hover{color:#bbb; }
 a:focus { outline: thin dotted; }
 a:hover, a:active { outline: 0; }
 
@@ -163,16 +163,9 @@ ALL: IE Fixes
 /* ===== Primary Styles ========================================================
 Author:
 ========================================================================== */
-
-
-
-
-
-
-
-
-
-
+fieldset{padding:0.2em;}
+input[type='text'],input[type='password']{width:90%}
+label{display:none;}
 
 /* =============================================================================
 Media Queries
@@ -205,6 +198,8 @@ nav ul li{
 .oldie nav a{
   margin:0 0.7%;		
 }
+
+input[type='text'],input[type='password']{width:40%}
 }
 
 @media only screen and (min-width: 768px) {
@@ -246,6 +241,8 @@ WIDE: Main
   float:right;
   width:28%;
 }
+
+input[type='text'],input[type='password']{width:20%}
 }
 
 @media only screen and (min-width: 1140px) {

@@ -1,5 +1,11 @@
 Youmark::Application.routes.draw do
 
+  match '/register', to: 'users#new'
+  match '/login', to: 'sessions#new'
+  match '/logout', to: 'sessions#destroy', via: :delete
+  resources :sessions, only: [:create]
+  resources :users
+ 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
